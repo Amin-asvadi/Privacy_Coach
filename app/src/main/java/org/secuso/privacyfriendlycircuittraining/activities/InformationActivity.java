@@ -8,8 +8,8 @@ import android.widget.EditText;
 import org.secuso.privacyfriendlycircuittraining.R;
 
 public class InformationActivity extends AppCompatActivity {
-    private EditText edage,edweght,edname,edfamily ;
-   public String age,weght,name,family;
+    private EditText edage,edweght,edname,edfamily,edheight ;
+   public String age,weght,name,family,height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class InformationActivity extends AppCompatActivity {
         findidformelatout();
 
         age = edage.getText().toString();
+        height = edheight.getText().toString();
         weght = edweght.getText().toString();
          name = edname.getText().toString();
          family = edfamily.getText().toString();

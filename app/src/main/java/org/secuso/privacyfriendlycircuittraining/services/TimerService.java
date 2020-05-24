@@ -690,7 +690,7 @@ public class TimerService extends Service {
         if(this.settings != null) {
             InformationActivity informationActivity = new InformationActivity();
             age = Integer.parseInt(settings.getString(informationActivity.age, "25"));
-            height = Integer.parseInt(settings.getString(informationActivity., "170"));
+            height = Integer.parseInt(settings.getString(informationActivity.height, "170"));
             weight = (int)Double.parseDouble(settings.getString(this.getString(R.string.pref_weight), "70"));
         }
 

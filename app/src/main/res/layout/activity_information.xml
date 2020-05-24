@@ -165,7 +165,7 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edheight"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
