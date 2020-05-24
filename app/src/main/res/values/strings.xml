@@ -92,8 +92,8 @@
     <string name="help_permission_answer">Privacy Friendly Training requires the permission "Receive Boot Completed". It is used to reschedule the motivation alert after a reboot. If the permission is not granted, the app has to be launched first to reschedule the daily reminder notification.</string>
 
     <!--###ABOUT###-->
-    <string name="about">About</string>
-    <string name="version_number">Version</string>
+    <string name="about">درباره</string>
+    <string name="version_number">ورژن</string>
     <string name="about_author">Authors: </string>
     <string name="about_author_names" translatable="false">Alexander Karakuz, Karola Marky, Nils Schroth</string>
     <string name="about_author_contributors">and contributors.</string>
@@ -105,7 +105,7 @@
     <string name="about_third_party_libs">The app uses <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a> from Philipp Jahoda (Apache 2 License).</string>
 
     <!-- ###SETTINGS### -->
-    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_settings">تنظیمات</string>
     <string name="pref_header_general">General</string>
     <string name="pref_header_workout">Workout</string>
     <string name="pref_voice_countdown_workout_title">Voice Countdown Workout</string>
@@ -142,13 +142,13 @@
     <string name="pref_calories_counter_title">Calories counter</string>
     <string name="pref_calories_counter_summary">Count the calories burnt during workout.</string>
     <string name="pref_group_title_personal_settings">Personalization</string>
-    <string name="pref_title_weight">Weight (kg)</string>
-    <string name="pref_title_age">Age</string>
-    <string name="pref_title_height">Height (cm)</string>
-    <string name="pref_title_gender">Gender</string>
+    <string name="pref_title_weight">وزن (کیلو گرم)</string>
+    <string name="pref_title_age">سن</string>
+    <string name="pref_title_height">قد (سانتیمتر)</string>
+    <string name="pref_title_gender">جنسیت</string>
     <string-array name="pref_keys_gender">
-        <item>female</item>
-        <item>male</item>
+        <item>زن</item>
+        <item>مرد</item>
     </string-array>
 
     <!-- ###PREFERENCE NOT TRANSLATEABLES### -->
@@ -193,8 +193,8 @@
     <string-array name="pref_default_notification_motivation_alert_messages">
         <item>Let\'s do it, it\'s time to work out!</item>
     </string-array>
-    <string name="alert_confirm_dialog_positive">Yes</string>
-    <string name="alert_confirm_dialog_negative">No</string>
+    <string name="alert_confirm_dialog_positive">بله</string>
+    <string name="alert_confirm_dialog_negative">خیر</string>
     <string name="workout_canceled_info">Do you want to abort the workout?</string>
     <string name="workout_canceled_check">Don\'t show this message again</string>
     <string name="alert_personalization_title">Do you want to personalize your app now?</string>
@@ -202,9 +202,9 @@
 
 
     <!-- ReportFragment -->
-    <string name="month">Month</string>
-    <string name="week">Week</string>
-    <string name="day">Day</string>
+    <string name="month">ماه</string>
+    <string name="week">هفته</string>
+    <string name="day">روز</string>
     <string name="report_workout_time">Workout time in minutes</string>
     <string name="report_calories">Calories</string>
     <string name="activity_summary_subtitle">Summary of activities</string>

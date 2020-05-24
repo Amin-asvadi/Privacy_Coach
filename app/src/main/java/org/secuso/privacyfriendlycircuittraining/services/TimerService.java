@@ -33,6 +33,7 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
 import org.secuso.privacyfriendlycircuittraining.R;
+import org.secuso.privacyfriendlycircuittraining.activities.InformationActivity;
 import org.secuso.privacyfriendlycircuittraining.activities.WorkoutActivity;
 import org.secuso.privacyfriendlycircuittraining.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycircuittraining.models.WorkoutSessionData;
@@ -679,10 +680,17 @@ public class TimerService extends Service {
         int height = 0;
         int weight = 0;
         int circleTrainingMET = 8;
-
+/*
         if(this.settings != null) {
             age = Integer.parseInt(settings.getString(this.getString(R.string.pref_age), "25"));
             height = Integer.parseInt(settings.getString(this.getString(R.string.pref_height), "170"));
+            weight = (int)Double.parseDouble(settings.getString(this.getString(R.string.pref_weight), "70"));
+        }*/
+
+        if(this.settings != null) {
+            InformationActivity informationActivity = new InformationActivity();
+            age = Integer.parseInt(settings.getString(informationActivity.age, "25"));
+            height = Integer.parseInt(settings.getString(informationActivity., "170"));
             weight = (int)Double.parseDouble(settings.getString(this.getString(R.string.pref_weight), "70"));
         }
 

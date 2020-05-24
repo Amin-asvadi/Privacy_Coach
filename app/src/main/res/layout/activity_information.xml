@@ -24,33 +24,34 @@
 
     <EditText
         android:id="@+id/edtxtweght"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:ems="10"
         android:fontFamily="@font/vazir"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="وزن"
+
         android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@+id/btn_info_save"
         app:layout_constraintEnd_toStartOf="@+id/edtextage"
-        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtextfamily"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.405" />
 
     <EditText
         android:id="@+id/edtextage"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:fontFamily="@font/vazir"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="سن"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -140,5 +141,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/circular" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_info_circle"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <RadioButton
+            android:id="@+id/man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مرد" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="زن" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="قد"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/vazir"
+        app:layout_constraintEnd_toStartOf="@+id/edtxtweght"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtextfamily" />
 
 </android.support.constraint.ConstraintLayout>
