@@ -62,7 +62,7 @@ public class SplashActivity extends AppCompatActivity {
             ExerciseSet defaultExerciseSet = new ExerciseSet(0, "Example", tmp);
 
             db.addExerciseSet(defaultExerciseSet);
-            Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent mainIntent = new Intent(SplashActivity.this, InformationActivity.class);
             SplashActivity.this.startActivity(mainIntent);
             SplashActivity.this.finish();
         }

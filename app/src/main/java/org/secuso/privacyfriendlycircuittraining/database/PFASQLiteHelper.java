@@ -27,28 +27,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.secuso.privacyfriendlycircuittraining.models.Exercise;
 import org.secuso.privacyfriendlycircuittraining.models.ExerciseSet;
+import org.secuso.privacyfriendlycircuittraining.models.InformationData;
 import org.secuso.privacyfriendlycircuittraining.models.WorkoutSessionData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Karola Marky, Alexander Karakuz, Nils Schroth, Christopher Beckmann
  * @version 20180321
  * Structure based on http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
  * accessed at 16th June 2016
- *
+ * <p>
  * This class defines the structure of our database.
  */
 
 public class PFASQLiteHelper extends SQLiteOpenHelper {
     private interface Patch {
-         void apply(SQLiteDatabase db);
-         void revert(SQLiteDatabase db);
+        void apply(SQLiteDatabase db);
+
+        void revert(SQLiteDatabase db);
     }
 
-    private static final Patch[] PATCHES = new Patch[] {
+    private static final Patch[] PATCHES = new Patch[]{
             new Patch() {
                 public void apply(SQLiteDatabase db) {
                     String EXERCISE_SET_TABLE = "CREATE TABLE " + TABLE_DATA_ES +
@@ -70,66 +71,133 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                             KEY_WORKOUT_TIME + " LONG," +
                             KEY_CALORIES + " INTEGER," +
                             KEY_TIMESTAMP + " INTEGER);";
+                    String PERSON_INFORAMTION_TABALE = "CREATE TABLE " + TABLE_DATA_INFORMATION +
+                            "(" +
+                            PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                            PERSON_NAME + " TEXT," +
+                            PERSON_FAMILY + "TEXT," +
+                            PERSON_AGE + "INTEGER" +
+                            PERSON_WEIGHT + " INTEGER," +
+                            PERSON_HEIGHT + " INTEGER);";
 
+                    db.execSQL(PERSON_INFORAMTION_TABALE);
                     db.execSQL(EXERCISE_SET_TABLE);
                     db.execSQL(EXERCISE_TABLE);
                     db.execSQL(WORKOUT_SESSION_TABLE);
                 }
+
                 public void revert(SQLiteDatabase db) {
+                    db.execSQL("DROP TABLE " + TABLE_DATA_INFORMATION + ";");
                     db.execSQL("DROP TABLE " + TABLE_DATA + ";");
                     db.execSQL("DROP TABLE " + TABLE_DATA_EX + ";");
                     db.execSQL("DROP TABLE " + TABLE_DATA_ES + ";");
                 }
             }
             , new Patch() {
-                public void apply(SQLiteDatabase db) {
-                    db.beginTransaction();
+        public void apply(SQLiteDatabase db) {
+            db.beginTransaction();
 
-                    String RENAME_EXERCISE_TABLE = "ALTER TABLE " + TABLE_DATA_EX + " RENAME TO "+ TABLE_DATA_EX + "_old;";
-                    String EXERCISE_TABLE = "CREATE TABLE " + TABLE_DATA_EX +
-                            "(" +
-                            KEY_ID_EX + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                            KEY_NAME_EX + " TEXT," +
-                            KEY_DESCIRPTION_EX + " TEXT," +
-                            KEY_IMAGE_EX + " TEXT);";
+            String RENAME_EXERCISE_TABLE = "ALTER TABLE " + TABLE_DATA_EX + " RENAME TO " + TABLE_DATA_EX + "_old;";
+            String EXERCISE_TABLE = "CREATE TABLE " + TABLE_DATA_EX +
+                    "(" +
+                    KEY_ID_EX + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    KEY_NAME_EX + " TEXT," +
+                    KEY_DESCIRPTION_EX + " TEXT," +
+                    KEY_IMAGE_EX + " TEXT);";
 
-                    String COPY_EXERCISES = "INSERT INTO "+ TABLE_DATA_EX +
-                            "(" + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX + ")" +
-                            " SELECT " + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX +
-                            " FROM " + TABLE_DATA_EX + "_old;";
+            String COPY_EXERCISES = "INSERT INTO " + TABLE_DATA_EX +
+                    "(" + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX + ")" +
+                    " SELECT " + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX +
+                    " FROM " + TABLE_DATA_EX + "_old;";
 
-                    db.execSQL(RENAME_EXERCISE_TABLE);
-                    db.execSQL(EXERCISE_TABLE);
-                    db.execSQL(COPY_EXERCISES);
+            db.execSQL(RENAME_EXERCISE_TABLE);
+            db.execSQL(EXERCISE_TABLE);
+            db.execSQL(COPY_EXERCISES);
 
-                    db.setTransactionSuccessful();
-                    db.endTransaction();
-                }
-                public void revert(SQLiteDatabase db) {
-                    db.beginTransaction();
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
 
-                    String RENAME_EXERCISE_TABLE = "ALTER TABLE " + TABLE_DATA_EX + " RENAME TO "+ TABLE_DATA_EX + "_old;";
-                    String EXERCISE_TABLE = "CREATE TABLE " + TABLE_DATA_EX +
-                            "(" +
-                            KEY_ID_EX + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                            KEY_NAME_EX + " TEXT," +
-                            KEY_DESCIRPTION_EX + " TEXT," +
-                            KEY_IMAGE_EX + " BLOB);";
+        public void revert(SQLiteDatabase db) {
+            db.beginTransaction();
 
-                    String COPY_EXERCISES = "INSERT INTO "+ TABLE_DATA_EX +
-                            "(" + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX + ")" +
-                            " SELECT " + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX +
-                            " FROM " + TABLE_DATA_EX + "_old;";
+            String RENAME_EXERCISE_TABLE = "ALTER TABLE " + TABLE_DATA_EX + " RENAME TO " + TABLE_DATA_EX + "_old;";
+            String EXERCISE_TABLE = "CREATE TABLE " + TABLE_DATA_EX +
+                    "(" +
+                    KEY_ID_EX + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    KEY_NAME_EX + " TEXT," +
+                    KEY_DESCIRPTION_EX + " TEXT," +
+                    KEY_IMAGE_EX + " BLOB);";
 
-                    db.execSQL(RENAME_EXERCISE_TABLE);
-                    db.execSQL(EXERCISE_TABLE);
-                    db.execSQL(COPY_EXERCISES);
+            String COPY_EXERCISES = "INSERT INTO " + TABLE_DATA_EX +
+                    "(" + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX + ")" +
+                    " SELECT " + KEY_ID_EX + "," + KEY_NAME_EX + "," + KEY_DESCIRPTION_EX +
+                    " FROM " + TABLE_DATA_EX + "_old;";
 
-                    db.setTransactionSuccessful();
-                    db.endTransaction();
-                }
-            }
-    };
+            db.execSQL(RENAME_EXERCISE_TABLE);
+            db.execSQL(EXERCISE_TABLE);
+            db.execSQL(COPY_EXERCISES);
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
+    }, new Patch() {
+        public void apply(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            String RENAME_INFORMATION_TABLE = "ALTER TABLE " + TABLE_DATA_INFORMATION + " RENAME TO " + TABLE_DATA_INFORMATION + "_old;";
+            String INFORMATION_TABLE =  "CREATE TABLE " + TABLE_DATA_INFORMATION +
+                    "(" +
+                    PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    PERSON_NAME + " TEXT," +
+                    PERSON_FAMILY + " TEXT," +
+                    PERSON_AGE + " INTEGER," +
+                    PERSON_WEIGHT + " INTEGER," +
+                    PERSON_HEIGHT + " INTEGER);";
+
+            String COPY_INFORMATION = " INSERT INTO " + TABLE_DATA_INFORMATION +
+                    "(" + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY + "," + PERSON_AGE +
+                    "," + PERSON_WEIGHT + "," + PERSON_HEIGHT + ")" +
+                    " SELECT " + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY + "," + PERSON_AGE +
+                    "," + PERSON_WEIGHT + "," + PERSON_HEIGHT +
+                    " FROM " + TABLE_DATA_INFORMATION ;
+
+            db.execSQL(RENAME_INFORMATION_TABLE);
+            db.execSQL(INFORMATION_TABLE);
+           db.execSQL(COPY_INFORMATION);
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
+
+        public void revert(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            String RENAME_INFORMATION_TABLE = "ALTER TABLE " + TABLE_DATA_INFORMATION + " RENAME TO " + TABLE_DATA_INFORMATION + "_old;";
+            String INFORMATION_TABLE =  "CREATE TABLE " + TABLE_DATA_INFORMATION +
+                    "(" +
+                    PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    PERSON_NAME + " TEXT," +
+                    PERSON_FAMILY + " TEXT," +
+                    PERSON_AGE + " INTEGER," +
+                    PERSON_WEIGHT + " INTEGER," +
+                    PERSON_HEIGHT + " INTEGER);";
+
+            String COPY_INFORMATION = "INSERT INTO " + TABLE_DATA_INFORMATION +
+                    "(" + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY +"," +
+                    PERSON_AGE +"," + PERSON_WEIGHT +"," + PERSON_HEIGHT + ")" +
+                    " SELECT " + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY +","+PERSON_AGE +
+                    ","+ PERSON_WEIGHT + ","+ PERSON_HEIGHT +
+                    " FROM " + TABLE_DATA_INFORMATION + "_old;";
+
+            db.execSQL(RENAME_INFORMATION_TABLE);
+            db.execSQL(INFORMATION_TABLE);
+            db.execSQL(COPY_INFORMATION);
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
+    }};
 
     private static final int DATABASE_VERSION = PATCHES.length;
 
@@ -138,11 +206,20 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * PF_[Name of the app]_DB
      */
     public static final String DATABASE_NAME = "PF_TRAINING_DB";
+    //Name of Person Information
+    private static final String PERSON_ID = "ID";
+    private static final String PERSON_NAME = "PERSON_NAME";
+    private static final String PERSON_FAMILY = "PERSON_FAMILY";
+    private static final String PERSON_AGE = "PERSON_AGE";
+    private static final String PERSON_WEIGHT = "PERSON_WEIGHT";
+    private static final String PERSON_HEIGHT = "PERSON_HEOGHT";
+
 
     //Name of the table in the database
     private static final String TABLE_DATA = "WORKOUT_SESSION";
     private static final String TABLE_DATA_ES = "EXERCISE_SET";
     private static final String TABLE_DATA_EX = "EXERCISES";
+    private static final String TABLE_DATA_INFORMATION = "PERSON_INFORMATION";
 
     //Names of columns in the databases in this example we only use one table
     private static final String KEY_ID = "id";
@@ -184,13 +261,33 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void addPrsonInformation(InformationData informationData) {
 
+
+    }
+    public void InsertData(InformationData data)
+    {
+        SQLiteDatabase databas = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PERSON_NAME, data.getNAME());
+        values.put(PERSON_FAMILY, data.getFAMILY());
+        values.put(PERSON_AGE, data.getAGE());
+        values.put(PERSON_WEIGHT, data.getWEIGHT());
+        values.put(PERSON_HEIGHT,data.getHEIGHT());
+
+        databas.insert(TABLE_DATA_INFORMATION, null, values);
+        databas.close();
+    }
     /**
      * Adds a single sampleData to our Table
      * As no ID is provided and KEY_ID is autoincremented (see line 50)
      * the last available key of the table is taken and incremented by 1
+     *
      * @param sampleData data that will be added
      */
+
+
+
     public void addWorkoutData(WorkoutSessionData sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -208,6 +305,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * Adds a single sampleData to our Table
      * As no ID is provided and KEY_ID is autoincremented (see line 50)
      * the last available key of the table is taken and incremented by 1
+     *
      * @param sampleData data that will be added
      */
     public long addExerciseSet(ExerciseSet sampleData) {
@@ -237,6 +335,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * Adds a single sampleData to our Table
      * As no ID is provided and KEY_ID is autoincremented (see line 50)
      * the last available key of the table is taken and incremented by 1
+     *
      * @param sampleData data that will be added
      */
     public long addExercise(Exercise sampleData) {
@@ -257,8 +356,9 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * Adds a single sampleData to our Table
      * This method can be used for re-insertion for example an undo-action
      * Therefore, the key of the sampleData will also be written into the database
+     *
      * @param sampleData data that will be added
-     * Only use this for undo options and re-insertions
+     *                   Only use this for undo options and re-insertions
      */
     public void addWorkoutDataWithID(WorkoutSessionData sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
@@ -280,8 +380,9 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * Adds a single sampleData to our Table
      * This method can be used for re-insertion for example an undo-action
      * Therefore, the key of the sampleData will also be written into the database
+     *
      * @param sampleData data that will be added
-     * Only use this for undo options and re-insertions
+     *                   Only use this for undo options and re-insertions
      */
     public void addExerciseSetWithID(ExerciseSet sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
@@ -312,8 +413,9 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * Adds a single sampleData to our Table
      * This method can be used for re-insertion for example an undo-action
      * Therefore, the key of the sampleData will also be written into the database
+     *
      * @param sampleData data that will be added
-     * Only use this for undo options and re-insertions
+     *                   Only use this for undo options and re-insertions
      */
     public void addExerciseWithID(Exercise sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
@@ -334,6 +436,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
     /**
      * This method gets a single sampleData entry based on its ID
+     *
      * @param id of the sampleData that is requested, could be get by the get-method
      * @return the sampleData that is requested.
      */
@@ -348,13 +451,13 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
         WorkoutSessionData data = new WorkoutSessionData();
 
-        if( cursor != null && cursor.moveToFirst() ){
+        if (cursor != null && cursor.moveToFirst()) {
             data.setID(Integer.parseInt(cursor.getString(0)));
             data.setWORKOUTTIME(Integer.parseInt(cursor.getString(1)));
             data.setCALORIES(Integer.parseInt(cursor.getString(2)));
 
             Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
-            
+
             cursor.close();
         }
 
@@ -363,6 +466,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
     /**
      * This method gets a single sampleData entry based on its ID
+     *
      * @param id of the sampleData that is requested, could be get by the get-method
      * @return the sampleData that is requested.
      */
@@ -377,7 +481,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
         ExerciseSet data = new ExerciseSet();
 
-        if( cursor != null && cursor.moveToFirst() ){
+        if (cursor != null && cursor.moveToFirst()) {
             data.setID(Integer.parseInt(cursor.getString(0)));
             data.setName(cursor.getString(1));
 
@@ -403,6 +507,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
     /**
      * This method gets a single sampleData entry based on its ID
+     *
      * @param id of the sampleData that is requested, could be get by the get-method
      * @return the sampleData that is requested.
      */
@@ -417,14 +522,14 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
         Exercise data = new Exercise(0, null, null, null);
 
-        if( cursor != null && cursor.moveToFirst() ){
+        if (cursor != null && cursor.moveToFirst()) {
             data.setID(Integer.parseInt(cursor.getString(0)));
             data.setName(cursor.getString(1));
             data.setDescription(cursor.getString(2));
 
 
             String uriString = cursor.getString(3);
-            if(uriString == null) {
+            if (uriString == null) {
                 uriString = "";
             }
 
@@ -442,6 +547,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     /**
      * This method returns all data from the DB as a list
      * This could be used for instance to fill a recyclerView
+     *
      * @return A list of all available sampleData in the Database
      */
     public List<WorkoutSessionData> getAllWorkoutData() {
@@ -474,6 +580,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     /**
      * This method returns all data from the DB as a list
      * This could be used for instance to fill a recyclerView
+     *
      * @return A list of all available sampleData in the Database
      */
     public List<ExerciseSet> getAllExerciseSet() {
@@ -520,6 +627,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     /**
      * This method returns all data from the DB as a list
      * This could be used for instance to fill a recyclerView
+     *
      * @return A list of all available sampleData in the Database
      */
     public List<Exercise> getAllExercise() {
@@ -545,7 +653,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                 sampleData.setDescription(cursor.getString(2));
 
                 String uriString = cursor.getString(3);
-                if(uriString == null) {
+                if (uriString == null) {
                     uriString = "";
                 }
 
@@ -561,9 +669,9 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     }
 
 
-
     /**
      * Updates a database entry.
+     *
      * @param workoutData
      * @return actually makes the update
      */
@@ -576,11 +684,12 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
         values.put(KEY_CALORIES, workoutData.getCALORIES());
 
         return database.update(TABLE_DATA, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(workoutData.getID()) });
+                new String[]{String.valueOf(workoutData.getID())});
     }
 
     /**
      * Updates a database entry.
+     *
      * @param exerciseSet
      * @return actually makes the update
      */
@@ -597,16 +706,17 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
         values.put(KEY_EXERCISES_ES, exerciseList);
 
         return database.update(TABLE_DATA_ES, values, KEY_ID_ES + " = ?",
-                new String[] { String.valueOf(exerciseSet.getID()) });
+                new String[]{String.valueOf(exerciseSet.getID())});
     }
 
 
     /**
      * Updates a database entry.
+     *
      * @param exercise
      * @return actually makes the update
      */
-    public int updateExercise(Exercise exercise){
+    public int updateExercise(Exercise exercise) {
         SQLiteDatabase database = this.getWritableDatabase();
 
         //To adjust this class for your own data, please add your values here.
@@ -616,18 +726,19 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
         values.put(KEY_IMAGE_EX, exercise.getImage().toString());
 
         return database.update(TABLE_DATA_EX, values, KEY_ID_EX + " = ?",
-                new String[] { String.valueOf(exercise.getID()) });
+                new String[]{String.valueOf(exercise.getID())});
     }
 
     /**
      * Deletes sampleData from the DB
      * This method takes the sampleData and extracts its key to build the delete-query
+     *
      * @param sampleData that will be deleted
      */
     public void deleteWorkoutData(WorkoutSessionData sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
         database.delete(TABLE_DATA, KEY_ID + " = ?",
-                new String[] { Integer.toString(sampleData.getID()) });
+                new String[]{Integer.toString(sampleData.getID())});
         //always close the DB after deletion of single entries
         database.close();
     }
@@ -635,12 +746,13 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     /**
      * Deletes sampleData from the DB
      * This method takes the sampleData and extracts its key to build the delete-query
+     *
      * @param sampleData that will be deleted
      */
     public void deleteExerciseSet(ExerciseSet sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
         database.delete(TABLE_DATA_ES, KEY_ID_ES + " = ?",
-                new String[] { Integer.toString(sampleData.getID()) });
+                new String[]{Integer.toString(sampleData.getID())});
         //always close the DB after deletion of single entries
         database.close();
     }
@@ -648,12 +760,13 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     /**
      * Deletes sampleData from the DB
      * This method takes the sampleData and extracts its key to build the delete-query
+     *
      * @param sampleData that will be deleted
      */
     public void deleteExercise(Exercise sampleData) {
         SQLiteDatabase database = this.getWritableDatabase();
         database.delete(TABLE_DATA_EX, KEY_ID_EX + " = ?",
-                new String[] { Integer.toString(sampleData.getID()) });
+                new String[]{Integer.toString(sampleData.getID())});
         //always close the DB after deletion of single entries
         database.close();
     }
@@ -664,7 +777,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      */
     public void deleteAllWorkokutData() {
         SQLiteDatabase database = this.getWritableDatabase();
-        database.execSQL("delete from "+ TABLE_DATA);
+        database.execSQL("delete from " + TABLE_DATA);
     }
 
     /**
@@ -673,7 +786,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      */
     public void deleteAllExerciseSet() {
         SQLiteDatabase database = this.getWritableDatabase();
-        database.execSQL("delete from "+ TABLE_DATA_ES);
+        database.execSQL("delete from " + TABLE_DATA_ES);
     }
 
     /**
@@ -682,7 +795,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      */
     public void deleteAllExercise() {
         SQLiteDatabase database = this.getWritableDatabase();
-        database.execSQL("delete from "+ TABLE_DATA_EX);
+        database.execSQL("delete from " + TABLE_DATA_EX);
     }
 
 }
