@@ -38,7 +38,7 @@ dbsql.InsertData(new InformationData(edname.getText().toString(),edfamily.getTex
         Integer.parseInt(edweght.getText().toString()),Integer.parseInt(edheight.getText().toString())));
 
                 Toast.makeText(getApplicationContext(), "اطلاعات ذخیره شد", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(InformationActivity.this,MainActivity.class);
+                Intent intent = new Intent(InformationActivity.this, WorkSetActivity.class);
                 startActivity(intent);
             }
         });

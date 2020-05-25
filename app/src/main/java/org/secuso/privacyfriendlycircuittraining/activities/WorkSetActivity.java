@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,12 +40,10 @@ import android.widget.Toast;
 import org.secuso.privacyfriendlycircuittraining.R;
 import org.secuso.privacyfriendlycircuittraining.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycircuittraining.helpers.NotificationHelper;
-import org.secuso.privacyfriendlycircuittraining.models.Exercise;
 import org.secuso.privacyfriendlycircuittraining.models.ExerciseSet;
 import org.secuso.privacyfriendlycircuittraining.services.TimerService;
 import org.secuso.privacyfriendlycircuittraining.tutorial.PrefManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +53,7 @@ import java.util.List;
  * @author Alexander Karakuz, Nils Schroth
  * @version 20180321
  */
-public class MainActivity extends BaseActivity {
+public class WorkSetActivity extends BaseActivity {
 
     // CONFIGURE TIMER VARIABLES HERE
     // Max and min values for the workout and rest timer as well as the sets
@@ -429,7 +426,7 @@ public class MainActivity extends BaseActivity {
         });
         alertBuilder.setPositiveButton(getString(R.string.alert_confirm_dialog_positive), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                Intent i = new Intent( MainActivity.this, SettingsActivity.class );
+                Intent i = new Intent( WorkSetActivity.this, SettingsActivity.class );
                 i.putExtra( PreferenceActivity.EXTRA_SHOW_FRAGMENT, SettingsActivity.PersonalizationPreferenceFragment.class.getName() );
                 i.putExtra( PreferenceActivity.EXTRA_NO_HEADERS, true );
                 startActivity(i);

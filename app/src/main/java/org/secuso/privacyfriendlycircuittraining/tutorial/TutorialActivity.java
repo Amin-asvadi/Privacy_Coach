@@ -33,7 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.secuso.privacyfriendlycircuittraining.R;
-import org.secuso.privacyfriendlycircuittraining.activities.MainActivity;
+import org.secuso.privacyfriendlycircuittraining.activities.WorkSetActivity;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
@@ -122,7 +122,7 @@ public class TutorialActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, WorkSetActivity.class);
         finish();
         startActivity(i);
     }
@@ -151,7 +151,7 @@ public class TutorialActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        startActivity(new Intent(TutorialActivity.this, MainActivity.class));
+        startActivity(new Intent(TutorialActivity.this, WorkSetActivity.class));
         finish();
     }
 

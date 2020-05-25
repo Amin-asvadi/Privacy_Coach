@@ -26,7 +26,7 @@ import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 import org.secuso.privacyfriendlycircuittraining.R;
-import org.secuso.privacyfriendlycircuittraining.activities.MainActivity;
+import org.secuso.privacyfriendlycircuittraining.activities.WorkSetActivity;
 import org.secuso.privacyfriendlycircuittraining.helpers.NotificationHelper;
 
 import java.util.ArrayList;
@@ -85,7 +85,7 @@ public class MotivationAlertReceiver extends WakefulBroadcastReceiver {
         // Build the notification
         NotificationManager notificationManager = (NotificationManager) context.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, WorkSetActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
 

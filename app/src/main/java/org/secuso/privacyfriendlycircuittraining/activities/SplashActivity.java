@@ -15,19 +15,15 @@
 package org.secuso.privacyfriendlycircuittraining.activities;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import org.secuso.privacyfriendlycircuittraining.R;
 import org.secuso.privacyfriendlycircuittraining.database.PFASQLiteHelper;
-import org.secuso.privacyfriendlycircuittraining.helpers.BitMapUtility;
 import org.secuso.privacyfriendlycircuittraining.models.Exercise;
 import org.secuso.privacyfriendlycircuittraining.models.ExerciseSet;
 import org.secuso.privacyfriendlycircuittraining.tutorial.PrefManager;
-import org.secuso.privacyfriendlycircuittraining.tutorial.TutorialActivity;
 
 import java.util.ArrayList;
 
@@ -67,7 +63,7 @@ public class SplashActivity extends AppCompatActivity {
             SplashActivity.this.finish();
         }
         else{
-            Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent mainIntent = new Intent(SplashActivity.this, WorkSetActivity.class);
             SplashActivity.this.startActivity(mainIntent);
             SplashActivity.this.finish();
         }

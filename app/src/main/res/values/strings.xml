@@ -258,5 +258,10 @@
     <string name="no_exercises">Please choose an exercise</string>
     <string name="dialog_exercise_set_confirm_delete_message">Do you want to delete the selected items?</string>
     <string name="exercise_set_has_no_exercises">Chosen exercise set has no exercises.</string>
+    <string name="user_weight">وزن</string>
+    <string name="user_age">سن</string>
+    <string name="user_height">قد</string>
+    <string name="name">نام</string>
+    <string name="last_name">نام خانوادگی</string>
 
 </resources>
