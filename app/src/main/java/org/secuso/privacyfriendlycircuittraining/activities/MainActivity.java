@@ -1,8 +1,10 @@
 package org.secuso.privacyfriendlycircuittraining.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import org.secuso.privacyfriendlycircuittraining.R;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_all);
         OnbindUi();
 
         SetTxtUser();
@@ -46,5 +48,10 @@ public class MainActivity extends AppCompatActivity {
         height = findViewById(R.id.txt_main_user_height);
 
 
+    }
+
+    public void Go_To_SetWork(View view) {
+        Intent intent =  new Intent(MainActivity.this,WorkSetActivity.class);
+        startActivity(intent);
     }
 }

@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
@@ -66,6 +67,8 @@ public class ExerciseActivity extends BaseActivity implements View.OnLongClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
 
         Intent myIntent = getIntent(); // gets the previously created intent
         is_in_picker_mode = myIntent.getBooleanExtra("pickerMode", false);

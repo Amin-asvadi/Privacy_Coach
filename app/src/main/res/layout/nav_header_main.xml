@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
+    android:textDirection="rtl"
     android:background="@color/colorAccent"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layoutDirection="rtl"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
@@ -28,7 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:fontFamily="@font/vazir"
             android:text="@string/app_name"
+            android:paddingRight="10dp"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"

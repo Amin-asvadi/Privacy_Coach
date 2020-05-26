@@ -14,7 +14,9 @@
 
 package org.secuso.privacyfriendlycircuittraining.activities;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 
 import org.secuso.privacyfriendlycircuittraining.R;
@@ -37,7 +39,8 @@ public class HelpActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         ExpandableListAdapter expandableListAdapter;
         HelpDataDump helpDataDump = new HelpDataDump(this);
 

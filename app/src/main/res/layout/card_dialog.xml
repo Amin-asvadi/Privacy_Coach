@@ -26,6 +26,7 @@
                 />
 
             <TextView
+                android:fontFamily="@font/vazir"
                 android:id="@+id/exercise_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

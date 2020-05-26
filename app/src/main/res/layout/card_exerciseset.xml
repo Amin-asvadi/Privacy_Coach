@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
     android:layout_height="wrap_content"
     android:padding="5dp">
 
@@ -8,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cardView"
+    app:cardElevation="8dp"
     >
 
     <RelativeLayout
@@ -17,6 +20,7 @@
         >
 
         <TextView
+            android:fontFamily="@font/vazir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/number"
@@ -26,6 +30,7 @@
             />
 
         <TextView
+            android:fontFamily="@font/vazir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name"
@@ -36,6 +41,7 @@
             />
 
         <TextView
+            android:fontFamily="@font/vazir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/exercises"
@@ -44,6 +50,7 @@
             />
 
         <ImageView
+
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"

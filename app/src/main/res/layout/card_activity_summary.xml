@@ -42,6 +42,7 @@
 
                     <TextView
                         android:id="@+id/period"
+                        android:fontFamily="@font/vazir"
                         style="@style/CardViewPrimaryTitle"
                         android:layout_width="match_parent"
                         android:background="?selectableItemBackgroundBorderless"
@@ -55,6 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/period"
                         android:gravity="center"
+                        android:fontFamily="@font/vazir"
                         android:text="@string/activity_summary_subtitle" />
 
                 </RelativeLayout>
@@ -126,6 +128,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:fontFamily="@font/vazir"
                             android:id="@+id/timeCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -146,6 +149,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:fontFamily="@font/vazir"
                             android:id="@+id/calorieCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -170,6 +174,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:fontFamily="@font/vazir"
                             android:id="@+id/timeTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -185,6 +190,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:fontFamily="@font/vazir"
                             android:id="@+id/calorieTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

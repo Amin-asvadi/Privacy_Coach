@@ -15,7 +15,9 @@
 package org.secuso.privacyfriendlycircuittraining.activities;
 
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import org.secuso.privacyfriendlycircuittraining.R;
 import org.secuso.privacyfriendlycircuittraining.fragments.DailyReportFragment;
@@ -37,7 +39,8 @@ public class StatisticsActivity extends BaseActivity implements DailyReportFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         // Load first view
         final android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new StatisticsFragment(), "StatisticsFragment");

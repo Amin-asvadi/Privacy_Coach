@@ -16,6 +16,7 @@ package org.secuso.privacyfriendlycircuittraining.activities;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -56,6 +57,8 @@ public class MotivationAlertTextsActivity extends AppCompatActivity implements M
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         setContentView(R.layout.activity_motivation_alert_texts);
 
         mEmptyView = (RelativeLayout) findViewById(R.id.empty_view);
