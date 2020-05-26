@@ -265,6 +265,29 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
 
     }
+    public ArrayList<InformationData> ShowData()
+    {
+        ArrayList<InformationData> data = new ArrayList<>();
+        String query = "SELECT * FROM " + TABLE_DATA_INFORMATION;
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                InformationData modelItem = new InformationData();
+                modelItem.setID(Integer.parseInt(cursor.getString(0)));
+                modelItem.setNAME(cursor.getString(1));
+                modelItem.setFAMILY(cursor.getString(2));
+                modelItem.setAGE(Integer.parseInt( cursor.getString(3)));
+                modelItem.setWEIGHT(Integer.parseInt( cursor.getString(4)));
+                modelItem.setHEIGHT(Integer.parseInt( cursor.getString(5)));
+
+                data.add(modelItem);
+            }
+            while (cursor.moveToNext());
+        }
+
+        return data;
+    }
     public void InsertData(InformationData data)
     {
         SQLiteDatabase databas = this.getWritableDatabase();
