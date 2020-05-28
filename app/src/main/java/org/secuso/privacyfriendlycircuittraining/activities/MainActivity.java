@@ -54,4 +54,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent =  new Intent(MainActivity.this,WorkSetActivity.class);
         startActivity(intent);
     }
+
+    public void Go_To_Drink_Water(View view) {
+        Intent intent =  new Intent(MainActivity.this,DrinkWater.class);
+        startActivity(intent);
+    }
 }

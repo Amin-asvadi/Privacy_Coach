@@ -18,7 +18,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.DrinkWater" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">

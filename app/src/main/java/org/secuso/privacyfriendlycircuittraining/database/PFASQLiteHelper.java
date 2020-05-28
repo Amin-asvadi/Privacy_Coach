@@ -21,13 +21,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.secuso.privacyfriendlycircuittraining.activities.DrinkWater;
 import org.secuso.privacyfriendlycircuittraining.models.Exercise;
 import org.secuso.privacyfriendlycircuittraining.models.ExerciseSet;
 import org.secuso.privacyfriendlycircuittraining.models.InformationData;
+import org.secuso.privacyfriendlycircuittraining.models.WaterData;
 import org.secuso.privacyfriendlycircuittraining.models.WorkoutSessionData;
 
 import java.util.ArrayList;
@@ -79,7 +82,13 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                             PERSON_AGE + "INTEGER" +
                             PERSON_WEIGHT + " INTEGER," +
                             PERSON_HEIGHT + " INTEGER);";
-
+                    String DRINK_WATER_TABALE = "CREATE TABLE " + TABALE_DATA_WATER +
+                            "(" +
+                            DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                            DRINK_DATE + " TEXT," +
+                            DRINK_TIME + "TEXT," +
+                            DRINK_TOTAL + " INTEGER);";
+db.execSQL(DRINK_WATER_TABALE);
                     db.execSQL(PERSON_INFORAMTION_TABALE);
                     db.execSQL(EXERCISE_SET_TABLE);
                     db.execSQL(EXERCISE_TABLE);
@@ -146,7 +155,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
             db.beginTransaction();
 
             String RENAME_INFORMATION_TABLE = "ALTER TABLE " + TABLE_DATA_INFORMATION + " RENAME TO " + TABLE_DATA_INFORMATION + "_old;";
-            String INFORMATION_TABLE =  "CREATE TABLE " + TABLE_DATA_INFORMATION +
+            String INFORMATION_TABLE = "CREATE TABLE " + TABLE_DATA_INFORMATION +
                     "(" +
                     PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     PERSON_NAME + " TEXT," +
@@ -160,11 +169,11 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                     "," + PERSON_WEIGHT + "," + PERSON_HEIGHT + ")" +
                     " SELECT " + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY + "," + PERSON_AGE +
                     "," + PERSON_WEIGHT + "," + PERSON_HEIGHT +
-                    " FROM " + TABLE_DATA_INFORMATION ;
+                    " FROM " + TABLE_DATA_INFORMATION;
 
             db.execSQL(RENAME_INFORMATION_TABLE);
             db.execSQL(INFORMATION_TABLE);
-           db.execSQL(COPY_INFORMATION);
+            db.execSQL(COPY_INFORMATION);
 
             db.setTransactionSuccessful();
             db.endTransaction();
@@ -174,7 +183,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
             db.beginTransaction();
 
             String RENAME_INFORMATION_TABLE = "ALTER TABLE " + TABLE_DATA_INFORMATION + " RENAME TO " + TABLE_DATA_INFORMATION + "_old;";
-            String INFORMATION_TABLE =  "CREATE TABLE " + TABLE_DATA_INFORMATION +
+            String INFORMATION_TABLE = "CREATE TABLE " + TABLE_DATA_INFORMATION +
                     "(" +
                     PERSON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     PERSON_NAME + " TEXT," +
@@ -184,15 +193,62 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                     PERSON_HEIGHT + " INTEGER);";
 
             String COPY_INFORMATION = "INSERT INTO " + TABLE_DATA_INFORMATION +
-                    "(" + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY +"," +
-                    PERSON_AGE +"," + PERSON_WEIGHT +"," + PERSON_HEIGHT + ")" +
-                    " SELECT " + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY +","+PERSON_AGE +
-                    ","+ PERSON_WEIGHT + ","+ PERSON_HEIGHT +
+                    "(" + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY + "," +
+                    PERSON_AGE + "," + PERSON_WEIGHT + "," + PERSON_HEIGHT + ")" +
+                    " SELECT " + PERSON_ID + "," + PERSON_NAME + "," + PERSON_FAMILY + "," + PERSON_AGE +
+                    "," + PERSON_WEIGHT + "," + PERSON_HEIGHT +
                     " FROM " + TABLE_DATA_INFORMATION + "_old;";
 
             db.execSQL(RENAME_INFORMATION_TABLE);
             db.execSQL(INFORMATION_TABLE);
             db.execSQL(COPY_INFORMATION);
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
+    }, new Patch() {
+        public void apply(SQLiteDatabase db) {
+            db.beginTransaction();
+
+                String RENAME_WATER_TABLE = "ALTER TABLE " + TABALE_DATA_WATER + " RENAME TO " + TABALE_DATA_WATER + "_old;";
+            String WATER_TABLE = "CREATE TABLE " + TABALE_DATA_WATER + "(" +
+                    DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DRINK_DATE + " TEXT," +
+                    DRINK_TIME + " TEXT," +
+                    DRINK_TOTAL + " INTEGER);";
+
+            String COPY_WATER = " INSERT INTO " + TABALE_DATA_WATER +
+                    "(" + DRINK_ID + "," + DRINK_DATE + "," + DRINK_TIME + "," + DRINK_TOTAL + ")" +
+                    " SELECT " + DRINK_ID + "," + DRINK_DATE + "," + DRINK_TIME + "," + DRINK_TOTAL +
+                    " FROM " + TABALE_DATA_WATER;
+
+            db.execSQL(RENAME_WATER_TABLE);
+            db.execSQL(WATER_TABLE);
+            db.execSQL(COPY_WATER);
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        }
+
+        public void revert(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            String RENAME_WATER_TABLE = "ALTER TABLE " + TABALE_DATA_WATER + " RENAME TO " + TABALE_DATA_WATER + "_old;";
+            String WATER_TABLE = "CREATE TABLE " + TABALE_DATA_WATER +
+                    "(" +
+                    DRINK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DRINK_DATE + " TEXT," +
+                    DRINK_TIME + " TEXT," +
+                    DRINK_TOTAL + " INTEGER);";
+
+            String COPY_WATER = "INSERT INTO " + TABLE_DATA_INFORMATION +
+                    "(" + DRINK_ID + "," + DRINK_DATE + "," + DRINK_TIME + "," + DRINK_TOTAL + ")" +
+                    " SELECT " + DRINK_ID + "," + DRINK_DATE + "," + DRINK_TIME + "," + DRINK_TOTAL +
+                    " FROM " + TABALE_DATA_WATER + "_old;";
+
+            db.execSQL(RENAME_WATER_TABLE);
+            db.execSQL(WATER_TABLE);
+            db.execSQL(COPY_WATER);
 
             db.setTransactionSuccessful();
             db.endTransaction();
@@ -213,6 +269,13 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     private static final String PERSON_AGE = "PERSON_AGE";
     private static final String PERSON_WEIGHT = "PERSON_WEIGHT";
     private static final String PERSON_HEIGHT = "PERSON_HEOGHT";
+    //water detals infomation
+
+    private static final String TABALE_DATA_WATER = "WATER_DETALS";
+    private static final String DRINK_ID = "ID";
+    private static final String DRINK_DATE = "DATE";
+    private static final String DRINK_TIME = "TIME";
+    private static final String DRINK_TOTAL = "TOTAL";
 
 
     //Name of the table in the database
@@ -265,8 +328,39 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
 
     }
-    public ArrayList<InformationData> ShowData()
-    {
+
+    public ArrayList<WaterData> ShowWaterData() {
+        ArrayList<WaterData> data = new ArrayList<>();
+        String query = "SELECT * FROM " + TABALE_DATA_WATER;
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                WaterData modelItem = new WaterData();
+                modelItem.setID(Integer.parseInt(cursor.getString(0)));
+                modelItem.setDATE(cursor.getString(1));
+                modelItem.setTIME(cursor.getString(2));
+                modelItem.setTOTAL(Integer.parseInt(cursor.getString(3)));
+                data.add(modelItem);
+            }
+            while (cursor.moveToNext());
+        }
+
+        return data;
+    }
+
+    public void InsertWaterData(WaterData data) {
+        SQLiteDatabase databas = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DRINK_DATE, data.getDATE());
+        values.put(DRINK_TIME, data.getTIME());
+        values.put(DRINK_TOTAL, data.getTOTAL());
+
+        databas.insert(TABALE_DATA_WATER, null, values);
+        databas.close();
+    }
+
+    public ArrayList<InformationData> ShowData() {
         ArrayList<InformationData> data = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_DATA_INFORMATION;
         SQLiteDatabase database = this.getWritableDatabase();
@@ -277,9 +371,9 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
                 modelItem.setID(Integer.parseInt(cursor.getString(0)));
                 modelItem.setNAME(cursor.getString(1));
                 modelItem.setFAMILY(cursor.getString(2));
-                modelItem.setAGE(Integer.parseInt( cursor.getString(3)));
-                modelItem.setWEIGHT(Integer.parseInt( cursor.getString(4)));
-                modelItem.setHEIGHT(Integer.parseInt( cursor.getString(5)));
+                modelItem.setAGE(Integer.parseInt(cursor.getString(3)));
+                modelItem.setWEIGHT(Integer.parseInt(cursor.getString(4)));
+                modelItem.setHEIGHT(Integer.parseInt(cursor.getString(5)));
 
                 data.add(modelItem);
             }
@@ -288,19 +382,20 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
         return data;
     }
-    public void InsertData(InformationData data)
-    {
+
+    public void InsertData(InformationData data) {
         SQLiteDatabase databas = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(PERSON_NAME, data.getNAME());
         values.put(PERSON_FAMILY, data.getFAMILY());
         values.put(PERSON_AGE, data.getAGE());
         values.put(PERSON_WEIGHT, data.getWEIGHT());
-        values.put(PERSON_HEIGHT,data.getHEIGHT());
+        values.put(PERSON_HEIGHT, data.getHEIGHT());
 
         databas.insert(TABLE_DATA_INFORMATION, null, values);
         databas.close();
     }
+
     /**
      * Adds a single sampleData to our Table
      * As no ID is provided and KEY_ID is autoincremented (see line 50)
@@ -308,7 +403,6 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      *
      * @param sampleData data that will be added
      */
-
 
 
     public void addWorkoutData(WorkoutSessionData sampleData) {

@@ -17,7 +17,7 @@
     <string name="action_settings">تنطیمات</string>
     <string name="action_main">صفحه اصلی</string>
     <string name="action_statistics">آمار</string>
-    <string name="action_exercisesets" >> مجموعه ورزش</string>
+    <string name="action_exercisesets">> مجموعه ورزش</string>
     <string name="action_exercises">تمرینات</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -244,7 +244,7 @@
     <string name="hello_blank_fragment">این یک فرگمنت خالیست</string>
 
     <string name="exerciseset_dialog_hint">نام مجموعه ورزشها</string>
-        <string name="exercise_name_dialog_hint">نام تمرین</string>
+    <string name="exercise_name_dialog_hint">نام تمرین</string>
     <string name="exercise_description_dialog_hint">شرح</string>
     <string name="new_exercise_set">مجموعه تمرین جدید</string>
     <string name="new_exercise">تمرین جدید</string>

@@ -205,7 +205,7 @@ android:onClick="Go_To_SetWork"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:onClick="Go_To_SetWork"
+                android:onClick="Go_To_Drink_Water"
                 android:layout_margin="5dp"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
@@ -240,7 +240,6 @@ android:onClick="Go_To_SetWork"
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -250,6 +249,34 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="match_parent"
+
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20sp"
+                            android:src="@drawable/sad_girl_weigh"
+                            android:padding="10dp"/>
+                        <TextView
+                            android:gravity="bottom|center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="محاسبه BMI"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/vazir"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
