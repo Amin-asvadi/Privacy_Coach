@@ -59,4 +59,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent =  new Intent(MainActivity.this,DrinkWater.class);
         startActivity(intent);
     }
+
+    public void go_to_bmi(View view) {
+        Intent intent =  new Intent(MainActivity.this,BmiActivity.class);
+        startActivity(intent);
+    }
 }

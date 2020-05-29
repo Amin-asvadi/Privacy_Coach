@@ -6,145 +6,162 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     tools:context=".activities.MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background_main"
         android:orientation="vertical"
-        android:weightSum="10"
-        android:background="@drawable/background_main">
+        android:weightSum="10">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="40dp"
-                android:src="@drawable/music_player"/>
+                android:src="@drawable/music_player" />
         </RelativeLayout>
+
         <GridLayout
-            android:layout_weight="8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="16dp"
-            android:columnCount="2"
-
-            android:rowCount="3">
+            android:layout_weight="8"
+            android:columnCount="2">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-android:onClick="Go_To_SetWork"
                 android:layout_margin="5dp"
                 android:background="@color/red"
+                android:onClick="Go_To_SetWork"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="130dp"
-                        android:scaleType="fitXY"
                         android:layout_height="80dp"
-                        android:layout_marginTop="20dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/dambel_man"
-                        android:padding="10dp"/>
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/dambel_man" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/vazir"
                         android:text="@string/main_set_counter"
-                        android:textStyle="bold"
                         android:textSize="20sp"
-                        android:fontFamily="@font/vazir"/>
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:onClick="Go_To_Drink_Water"
                 android:layout_margin="5dp"
                 android:background="@color/red"
+                android:onClick="Go_To_Drink_Water"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="15sp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="15sp">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                    <ImageView
-                        android:layout_width="match_parent"
 
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="5dp"
-                        android:src="@drawable/ic_drik_water"
-                        android:padding="10dp"/>
-                    <TextView
-                      android:gravity="bottom|center_horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:text="یادآور آب"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/vazir"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="5dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_drik_water" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="یادآور آب"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
+                android:onClick="go_to_bmi"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_marginBottom="20sp"
-                            android:src="@drawable/sad_girl_weigh"
-                            android:padding="10dp"/>
+                            android:padding="10dp"
+                            android:src="@drawable/sad_girl_weigh" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
                             android:text="محاسبه BMI"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -154,14 +171,17 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
@@ -169,20 +189,22 @@ android:onClick="Go_To_SetWork"
                             android:layout_gravity="center"
                             android:layout_marginBottom="20sp"
                             android:src="@drawable/step" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
                             android:text="قدم شمار"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -192,31 +214,35 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:padding="15dp"
                             android:layout_marginBottom="20sp"
+                            android:padding="15dp"
                             android:src="@drawable/heart_rate" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
                             android:text="ضربان قلب"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -232,14 +258,17 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
@@ -248,20 +277,22 @@ android:onClick="Go_To_SetWork"
                             android:paddingTop="20dp"
                             android:paddingBottom="35sp"
                             android:src="@drawable/main_chart" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
                             android:text="آمار"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -271,14 +302,17 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
@@ -287,20 +321,22 @@ android:onClick="Go_To_SetWork"
                             android:paddingTop="15sp"
                             android:paddingBottom="15sp"
                             android:src="@drawable/sport_girl_1" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
                             android:text="موزیک پلیر"
-                            android:textStyle="bold"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -310,14 +346,17 @@ android:onClick="Go_To_SetWork"
                 android:background="@color/red"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:layout_width="match_parent"
 
@@ -326,16 +365,17 @@ android:onClick="Go_To_SetWork"
                             android:paddingTop="28dp"
                             android:paddingBottom="28dp"
                             android:src="@drawable/setting" />
+
                         <TextView
-                            android:gravity="bottom|center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:text="تنظیمات"
+                            android:fontFamily="@font/vazir"
+                            android:gravity="bottom|center_horizontal"
 
-                            android:textStyle="bold"
+                            android:text="تنظیمات"
                             android:textSize="20sp"
-                            android:fontFamily="@font/vazir"/>
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </LinearLayout>
