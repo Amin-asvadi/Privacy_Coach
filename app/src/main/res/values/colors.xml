@@ -21,6 +21,8 @@
     <color name="colorBlack">#090909</color>
     <color name="colorSkyBlue">#03BBFF</color>
     <color name="grey">#A5A3A3</color>
+    <color name="grey_2">#4a6572</color>
+    <color name="orange">#f9aa33</color>
     <color name="dividerColor">#F5F5F5</color>
     <!-- dots inactive colors -->
     <color name="dot_dark_screen">#026499</color>

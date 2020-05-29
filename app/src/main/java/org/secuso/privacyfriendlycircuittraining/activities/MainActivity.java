@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_all);
-        OnbindUi();
+       // OnbindUi();
 
-        SetTxtUser();
+       // SetTxtUser();
 
     }
 
-    private void SetTxtUser() {
+    /*private void SetTxtUser() {
         PFASQLiteHelper db = new PFASQLiteHelper(MainActivity.this);
         List<InformationData> users =db.ShowData();
       for (InformationData user:users){
@@ -39,16 +39,16 @@ public class MainActivity extends AppCompatActivity {
 
       }
 
-    }
+    }*/
 
-    private void OnbindUi() {
+   /* private void OnbindUi() {
         name = findViewById(R.id.txt_main_user_name);
         age =findViewById(R.id.txt_main_user_age);
         weight =findViewById(R.id.txt_main_user_weight);
         height = findViewById(R.id.txt_main_user_height);
 
 
-    }
+    }*/
 
     public void Go_To_SetWork(View view) {
         Intent intent =  new Intent(MainActivity.this,WorkSetActivity.class);
