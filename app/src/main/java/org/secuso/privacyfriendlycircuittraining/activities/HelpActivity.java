@@ -53,9 +53,9 @@ public class HelpActivity extends BaseActivity {
 
         overridePendingTransition(0, 0);
     }
-
+//این متود از na_setting به nav_abote تغییر داده شود
     protected int getNavigationDrawerID() {
-        return R.id.nav_help;
+        return R.id.nav_settings;
     }
 
 }

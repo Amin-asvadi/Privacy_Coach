@@ -169,20 +169,13 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
                 intent = new Intent(this, StatisticsActivity.class);
                 createBackStack(intent);
                 break;
-            case R.id.nav_about:
-                intent = new Intent(this, AboutActivity.class);
-                createBackStack(intent);
-                break;
+
             case R.id.nav_tutorial:
                 PrefManager prefManager = new PrefManager(getBaseContext());
                 //prefManager.setFirstTimeLaunch(true);
                 intent = new Intent(this, TutorialActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                break;
-            case R.id.nav_help:
-                intent = new Intent(this, HelpActivity.class);
-                createBackStack(intent);
                 break;
             case R.id.nav_settings:
                 intent = new Intent(this, SettingsActivity.class);

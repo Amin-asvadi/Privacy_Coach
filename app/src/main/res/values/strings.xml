@@ -58,24 +58,24 @@
 
 
     <!-- ###EXERCIESESETS###-->
-    <string name="title_activity_exercisesets">Exercise Sets</string>
-    <string name="exercisesets_lists_empty">You don\'t have any exercise sets</string>
+    <string name="title_activity_exercisesets">مجموعه ورزش</string>
+    <string name="exercisesets_lists_empty">هیچ مجموعه ورزشی ندارید</string>
 
     <!-- ###EXERCIESES###-->
-    <string name="title_activity_exercises">Exercises</string>
-    <string name="exercises_lists_empty">You don\'t have any exercises</string>
+    <string name="title_activity_exercises">تمرینات</string>
+    <string name="exercises_lists_empty">هیچ تمرینی ندارید</string>
 
     <!-- ###NOTIFICATIONS###-->
-    <string name="workout_notification_time">Time</string>
-    <string name="workout_notification_pause">Pause</string>
-    <string name="workout_notification_resume">Resume</string>
-    <string name="reminder_notification_title">Circuit Training</string>
+    <string name="workout_notification_time">زمان</string>
+    <string name="workout_notification_pause">وقفه</string>
+    <string name="workout_notification_resume">ادامه</string>
+    <string name="reminder_notification_title">مربی خصوصی</string>
 
 
     <!--###HELP###-->
-    <string name="help">Help</string>
-    <string name="help_whatis">What is Privacy Friendly Training?</string>
-    <string name="help_whatis_answer">Privacy Friendly Training supports the user during his/her circuit training session. It provides a configurable set of timers for the exercises and the rest phases as well as multiple other features.</string>
+    <string name="help">راهنما</string>
+    <string name="help_whatis">مربی خصوصی چیست؟</string>
+    <string name="help_whatis_answer">مربی خصوصی حفظ حریم خصوصی کاربر را در طول جلسه آموزش مدار خود پشتیبانی می کند. این مجموعه ای از تنظیم تایمر را برای تمرین ها و مراحل استراحت و همچنین چندین ویژگی دیگر فراهم می کند.</string>
     <string name="help_feature_workout_timer">Feature: Workokut timer</string>
     <string name="help_feature_workout_timer_answer">After configuring the set of timers in the main menu you can start the workout routine by pressing the start button. The workout view has animations and sound output features which can be turned on and off inside the settings menu.</string>
     <string name="help_feature_motivation_alert">Feature: Motivation alert</string>
@@ -94,20 +94,20 @@
     <!--###ABOUT###-->
     <string name="about">درباره</string>
     <string name="version_number">ورژن</string>
-    <string name="about_author">Authors: </string>
-    <string name="about_author_names" translatable="false">Alexander Karakuz, Karola Marky, Nils Schroth</string>
-    <string name="about_author_contributors">and contributors.</string>
-    <string name="about_affiliation">In affiliation with</string>
-    <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Technische Universität Darmstadt. Sourcecode licensed under GPLv3. Images copyright TU Darmstadt and Google Inc.</string>
-    <string name="more_info">More information can be found on:</string>
-    <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-app-example">Github-Repo</a></string>
-    <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
+    <string name="about_author">نویسندگان: </string>
+    <string name="about_author_names" translatable="false">امین اسودی</string>
+    <string name="about_author_contributors">و مشارکت کنندگان.</string>
+    <string name="about_affiliation">در ارتباط با</string>
+    <string name="privacy_friendly">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد..</string>
+    <string name="more_info">اطلاعات بیشتر را می توان در اینجا مشاهده کرد:</string>
+    <string name="github" translatable="false"><a href="https://github.com/Amin-asvadi">لینک گیت</a></string>
+    <string name="url" translatable="false"><a href="https://github.com/Amin-asvadi">لینک گیت</a></string>
     <string name="about_third_party_libs">The app uses <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a> from Philipp Jahoda (Apache 2 License).</string>
 
     <!-- ###SETTINGS### -->
     <string name="title_activity_settings">تنظیمات</string>
-    <string name="pref_header_general">General</string>
-    <string name="pref_header_workout">Workout</string>
+    <string name="pref_header_general">پیشرفته</string>
+    <string name="pref_header_workout">تمرین</string>
     <string name="pref_voice_countdown_workout_title">Voice Countdown Workout</string>
     <string name="pref_voice_countdown_workout_summary">A voice counts down the final seconds of a workout.</string>
     <string name="pref_voice_countdown_rest_title">Voice Countdown Rest</string>
@@ -205,8 +205,8 @@
     <string name="month">ماه</string>
     <string name="week">هفته</string>
     <string name="day">روز</string>
-    <string name="report_workout_time">Workout time in minutes</string>
-    <string name="report_calories">Calories</string>
+    <string name="report_workout_time">وقت تمرین در دقیقه</string>
+    <string name="report_calories">کالری</string>
     <string name="activity_summary_subtitle">خلاصه فعالیت ها</string>
     <string name="activity_chart_summary_subtitle">خلاصه تفصیلی از فعالیت های شما</string>
     <string name="summary_card_calories">کیلو کالری</string>
@@ -218,20 +218,20 @@
     <string name="slide1_heading">خوش آمدید!</string>
     <string name="slide1_text1">این برنامه شما را در طول جلسه آموزش مدار شما پشتیبانی می کند. این مجموعه ای از تنظیم تایمر برای تمرین ها و مراحل استراحت را برای شما فراهم می کند
         .</string>
-    <string name="slide1_text2">Also, statistics of completed training sessions can be accessed.</string>
+    <string name="slide1_text2">همچنین به آمار جلسات آموزشی کامل شده قابل دسترسی است.</string>
 
-    <string name="slide2_heading">Personalization</string>
-    <string name="slide2_text">In order to improve the calculation of the calories you have burned please customize your personal settings. Calories are counted for completed workout phases only.</string>
+    <string name="slide2_heading">شخصی</string>
+    <string name="slide2_text">به منظور بهبود محاسبه کالری های سوزانده شده ، لطفاً تنظیمات شخصی خود را سفارشی کنید. کالری فقط برای مراحل تمرینی کامل انجام می شود.</string>
 
-    <string name="slide3_heading">Notifications</string>
-    <string name="slide3_text">The app can remind you about upcoming workout sessions. This can be configured inside the settings.</string>
+    <string name="slide3_heading">اعلانات</string>
+        <string name="slide3_text">این برنامه می تواند در مورد جلسات تمرین آینده به شما یادآوری کند. این را می توان در داخل تنظیمات پیکربندی کرد.</string>
 
-    <string name="slide4_heading">Block Periodization</string>
-    <string name="slide4_text_1">When scheduling the timers you may also choose the block periodization feature.</string>
-    <string name="slide4_text_2">This feature allows you to configure longer, separate breaks in between the exercises. This way the workout can be split into multiple high intensity workout cycles.</string>
+    <string name="slide4_heading">مسدود کردن دوره</string>
+    <string name="slide4_text_1">هنگام برنامه ریزی تایمر ممکن است ویژگی دوره بندی بلوک را نیز انتخاب کنید.</string>
+    <string name="slide4_text_2">این ویژگی به شما امکان می دهد فاصله بین تمرینات طولانی تر و جداگانه را پیکربندی کنید. به این ترتیب تمرین را می توان به چندین چرخه تمرینی با شدت بالا تقسیم کرد.</string>
 
-    <string name="slide5_heading">Exercise Sets</string>
-    <string name="slide5_text">You can create Exercise Sets from your own exercises and use them for circuit training.</string>
+    <string name="slide5_heading">مجموعه ورزش</string>
+    <string name="slide5_text">می توانید از تمرینات خود مجموعه های تمرینی ایجاد کنید و از آنها برای آموزش مدار استفاده کنید.</string>
 
     <string name="okay">بسیار خوب</string>
     <string name="viewhelp">مشاهده راهنما</string>
@@ -249,16 +249,16 @@
     <string name="new_exercise_set">مجموعه تمرین جدید</string>
     <string name="new_exercise">تمرین جدید</string>
     <string name="cancel">لغو</string>
-    <string name="no_exercise_sets">You don\'t have any Exercise Sets</string>
-    <string name="valid_name">Please enter a name</string>
-    <string name="choose_one_exercise">Please choose one Exercise</string>
+    <string name="no_exercise_sets">شما هیچ تمرین ورزشی ندارید</string>
+    <string name="valid_name">لطفا نامی را وارد کنید</string>
+        <string name="choose_one_exercise">لطفاً یک تمرین را انتخاب کنید</string>
 
-    <string name="load_image_error">Something went wrong</string>
-    <string name="no_image_picked">You haven\'t picked Image</string>
+    <string name="load_image_error">مشکلی پیش آمد</string>
+    <string name="no_image_picked">شما تصویری را انتخاب نکرده اید</string>
 
-    <string name="no_exercises">Please choose an exercise</string>
-    <string name="dialog_exercise_set_confirm_delete_message">Do you want to delete the selected items?</string>
-    <string name="exercise_set_has_no_exercises">Chosen exercise set has no exercises.</string>
+    <string name="no_exercises">لطفا یک تمرین را انتخاب کنید</string>
+    <string name="dialog_exercise_set_confirm_delete_message">آیا می خواهید موارد انتخاب شده را حذف کنید؟</string>
+    <string name="exercise_set_has_no_exercises">مجموعه ورزشی انتخابی هیچ تمرینی ندارد.</string>
     <string name="user_weight" translatable="false">وزن</string>
     <string name="user_age" translatable="false">سن</string>
     <string name="user_height" translatable="false">قد</string>
